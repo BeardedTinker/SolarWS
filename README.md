@@ -39,6 +39,8 @@ There are still some things that need to be fixed, checked and calibrated, but s
 MQTT? Sure, it can work as good with MQTT as it is working with Home Assistant API, BUT I deceided to go API route.
 At this point, I'm not sure when or if I'll make MQTT version of the code or maybe even dual version in same file.
 
+I've included sample.log that is dump of one cyle (awake cycle) from weather station. So far these are values I get. At the time of recording of this log, no wind or rain was detected.
+
 ## Deep sleep
 Device goes into deep sleep after 30s of being online. This value can be customized (reduced or increased if needed). 
 Sleep lasts for 5 minutes (also can be changed if needed).

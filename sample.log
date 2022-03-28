@@ -1,0 +1,124 @@
+INFO Successfully connected to solarweather.local
+[10:40:00][I][app:102]: ESPHome version 2022.3.1 compiled on Mar 28 2022, 10:39:14
+[10:40:00][C][wifi:491]: WiFi:
+[10:40:00][C][wifi:353]:   Local MAC: 78:21:XX:XX:XX:XX
+[10:40:00][C][wifi:354]:   SSID: 'BT_IoT_2'[redacted]
+[10:40:00][C][wifi:355]:   IP Address: 192.168.XXX.XXX
+[10:40:00][C][wifi:357]:   BSSID: F6:92:XX:XX:XX:XX[redacted]
+[10:40:00][C][wifi:358]:   Hostname: 'solarweather'
+[10:40:00][C][wifi:360]:   Signal strength: -50 dB ▂▄▆█
+[10:40:00][C][wifi:364]:   Channel: 1
+[10:40:00][C][wifi:365]:   Subnet: 255.255.252.0
+[10:40:00][C][wifi:366]:   Gateway: 192.168.XXX.XXX
+[10:40:00][C][wifi:367]:   DNS1: 1.1.1.1
+[10:40:00][C][wifi:368]:   DNS2: 8.8.8.8
+[10:40:00][C][logger:233]: Logger:
+[10:40:00][C][logger:234]:   Level: DEBUG
+[10:40:00][C][logger:235]:   Log Baud Rate: 115200
+[10:40:00][C][logger:236]:   Hardware UART: UART0
+[10:40:00][C][i2c.arduino:038]: I2C Bus:
+[10:40:00][C][i2c.arduino:039]:   SDA Pin: GPIO21
+[10:40:00][C][i2c.arduino:040]:   SCL Pin: GPIO22
+[10:40:00][C][i2c.arduino:041]:   Frequency: 50000 Hz
+[10:40:00][C][i2c.arduino:044]:   Recovery: bus successfully recovered
+[10:40:00][I][i2c.arduino:054]: Results from i2c bus scan:
+[10:40:00][I][i2c.arduino:060]: Found i2c device at address 0x23
+[10:40:00][I][i2c.arduino:060]: Found i2c device at address 0x76
+[10:40:00][C][dallas.sensor:075]: DallasComponent:
+[10:40:00][C][dallas.sensor:076]:   Pin: GPIO4
+[10:40:00][C][dallas.sensor:077]:   Update Interval: 60.0s
+[10:40:00][D][dallas.sensor:082]:   Found sensors:
+[10:40:00][D][dallas.sensor:084]:     0xc43c01f096e8b728
+[10:40:00][C][dallas.sensor:089]:   Device 'solarws Air Temperature'
+[10:40:00][C][dallas.sensor:089]:     Device Class: 'temperature'
+[10:40:00][C][dallas.sensor:089]:     State Class: 'measurement'
+[10:40:00][C][dallas.sensor:089]:     Unit of Measurement: '°C'
+[10:40:00][C][dallas.sensor:089]:     Accuracy Decimals: 1
+[10:40:00][C][dallas.sensor:089]:     Icon: 'mdi:thermometer'
+[10:40:00][C][dallas.sensor:097]:     Address: 0xc43c01f096e8b728
+[10:40:00][C][dallas.sensor:098]:     Resolution: 12
+[10:40:00][C][bme280.sensor:143]: BME280:
+[10:40:00][C][bme280.sensor:144]:   Address: 0x76
+[10:40:00][C][bme280.sensor:156]:   IIR Filter: OFF
+[10:40:00][C][bme280.sensor:157]:   Update Interval: 60.0s
+[10:40:00][C][bme280.sensor:159]:   Temperature 'solarws WS Temperature'
+[10:40:00][C][bme280.sensor:159]:     Device Class: 'temperature'
+[10:40:00][C][bme280.sensor:159]:     State Class: 'measurement'
+[10:40:00][C][bme280.sensor:159]:     Unit of Measurement: '°C'
+[10:40:00][C][bme280.sensor:159]:     Accuracy Decimals: 1
+[10:40:00][C][bme280.sensor:159]:     Icon: 'mdi:thermometer'
+[10:40:00][C][bme280.sensor:160]:     Oversampling: 4x
+[10:40:00][C][bme280.sensor:161]:   Pressure 'solarws Pressure'
+[10:40:00][C][bme280.sensor:161]:     Device Class: 'pressure'
+[10:40:00][C][bme280.sensor:161]:     State Class: 'measurement'
+[10:40:00][C][bme280.sensor:161]:     Unit of Measurement: 'hPa'
+[10:40:00][C][bme280.sensor:161]:     Accuracy Decimals: 1
+[10:40:00][C][bme280.sensor:162]:     Oversampling: 4x
+[10:40:00][C][bme280.sensor:163]:   Humidity 'solarws Humidity'
+[10:40:00][C][bme280.sensor:163]:     Device Class: 'humidity'
+[10:40:00][C][bme280.sensor:163]:     State Class: 'measurement'
+[10:40:00][C][bme280.sensor:163]:     Unit of Measurement: '%'
+[10:40:00][C][bme280.sensor:163]:     Accuracy Decimals: 1
+[10:40:00][C][bme280.sensor:163]:     Icon: 'mdi:thermometer'
+[10:40:00][C][bme280.sensor:164]:     Oversampling: 4x
+[10:40:00][C][adc:062]: ADC Sensor 'solarws Battery'
+[10:40:00][C][adc:062]:   Device Class: 'voltage'
+[10:40:00][C][adc:062]:   State Class: 'measurement'
+[10:40:00][C][adc:062]:   Unit of Measurement: 'V'
+[10:40:00][C][adc:062]:   Accuracy Decimals: 3
+[10:40:00][C][adc:087]:  Attenuation: 11db (max 3.9V)
+[10:40:00][C][adc:094]:   Update Interval: 60.0s
+[10:40:00][C][adc:062]: ADC Sensor 'solarws Battery %'
+[10:40:00][C][adc:062]:   Device Class: 'voltage'
+[10:40:00][C][adc:072]:   Pin: GPIO33
+[10:40:00][C][adc:087]:  Attenuation: 11db (max 3.9V)
+[10:40:00][C][adc:094]:   Update Interval: 60.0s
+[10:40:00][C][pulse_counter:148]: Pulse Counter 'Rainfall'
+[10:40:00][C][pulse_counter:148]:   State Class: 'measurement'
+[10:40:00][C][pulse_counter:148]:   Unit of Measurement: 'mm'
+[10:40:00][C][pulse_counter:148]:   Accuracy Decimals: 2
+[10:40:00][C][pulse_counter:148]:   Icon: 'mdi:pulse'
+[10:40:00][C][pulse_counter:149]:   Pin: GPIO25
+[10:40:00][C][pulse_counter:150]:   Rising Edge: INCREMENT
+[10:40:00][C][pulse_counter:151]:   Falling Edge: DISABLE
+[10:40:00][C][pulse_counter:152]:   Filtering pulses shorter than 13 µs
+[10:40:00][C][pulse_counter:153]:   Update Interval: 25.0s
+[10:40:00][C][bh1750.sensor:118]: BH1750 'solarws Lux'
+[10:40:00][C][bh1750.sensor:118]:   Device Class: 'illuminance'
+[10:40:00][C][bh1750.sensor:118]:   State Class: 'measurement'
+[10:40:00][C][bh1750.sensor:118]:   Unit of Measurement: 'lx'
+[10:40:00][C][bh1750.sensor:118]:   Accuracy Decimals: 1
+[10:40:00][C][bh1750.sensor:118]:   Icon: 'mdi:white-balance-sunny'
+[10:40:00][C][bh1750.sensor:119]:   Address: 0x23
+[10:40:00][C][bh1750.sensor:124]:   Update Interval: 25.0s
+[10:40:01][C][pulse_meter:088]: Pulse Meter 'solarws Windspeed Meter'
+[10:40:01][C][pulse_meter:088]:   State Class: 'measurement'
+[10:40:01][C][pulse_meter:088]:   Unit of Measurement: 'km/h'
+[10:40:01][C][pulse_meter:088]:   Accuracy Decimals: 1
+[10:40:01][C][pulse_meter:088]:   Icon: 'mdi:weather-windy'
+[10:40:01][C][pulse_meter:089]:   Pin: GPIO14
+[10:40:01][C][pulse_meter:091]:   Filtering rising edges less than 13 µs apart
+[10:40:01][C][pulse_meter:095]:   Assuming 0 pulses/min after not receiving a pulse for 5s
+[10:40:01][C][mdns:084]: mDNS:
+[10:40:01][C][mdns:085]:   Hostname: solarweather
+[10:40:01][C][ota:085]: Over-The-Air Updates:
+[10:40:01][C][ota:086]:   Address: solarweather.local:3232
+[10:40:01][C][api:138]: API Server:
+[10:40:01][C][api:139]:   Address: solarweather.local:6053
+[10:40:01][C][api:143]:   Using noise encryption: NO
+[10:40:01][C][homeassistant.binary_sensor:039]: Homeassistant Binary Sensor 'Prevent Solar WS Deep Sleep'
+[10:40:01][C][homeassistant.binary_sensor:040]:   Entity ID: 'input_boolean.solarws_prevent_deep_sleep'
+[10:40:01][C][deep_sleep:047]: Setting up Deep Sleep...
+[10:40:01][C][deep_sleep:050]:   Sleep Duration: 300000 ms
+[10:40:01][D][homeassistant.binary_sensor:026]: 'input_boolean.solarws_prevent_deep_sleep': Got state OFF
+[10:40:01][D][binary_sensor:034]: 'Prevent Solar WS Deep Sleep': Sending initial state OFF
+[10:40:12][D][pulse_counter:162]: 'Rainfall': Retrieved counter: 0.00 pulses/min
+[10:40:12][D][sensor:125]: 'Rainfall': Sending state 0.00000 mm with 2 decimals of accuracy
+[10:40:12][D][bh1750.sensor:159]: 'solarws Lux': Got illuminance=3143.0lx
+[10:40:12][D][sensor:125]: 'solarws Lux': Sending state 3143.03149 lx with 1 decimals of accuracy
+[10:40:23][I][deep_sleep:103]: Beginning Deep Sleep
+[10:40:23][D][esp32.preferences:114]: Saving preferences to flash...
+INFO Disconnected from ESPHome API for solarweather.local
+WARNING Disconnected from API
+WARNING Can't connect to ESPHome API for solarweather.local: Error resolving IP address: [Errno -2] Name or service not known
+INFO Trying to reconnect to solarweather.local in the background
