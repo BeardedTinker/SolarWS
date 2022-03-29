@@ -1,17 +1,17 @@
 # ESPHome code for Solar Weather station by [Open Green Energy](https://github.com/deba168) - Debasish Dutta 
 
-You will be able to find here file(s) used to power Solar Powered WiFi Weather Station V3.0 by [OpenGreenEnergy](https://github.com/deba168).
+You will be able to find here file(s) used to power Solar Powered WiFi Weather Station V3.2 by [OpenGreenEnergy](https://github.com/deba168).
 
-While most of the functionality has been kept for this ESPHome version, there are currently some limitations and one NO-GO.
+While most of the functionality has been kept for this ESPHome version, there are currently some limitations and one NO-GO (UV sensor).
 
-Project is still been worked on and while planned release of the code and video is soon(tm), there will always be place for improvement
+YouTube video of the project is on [this link](https://youtu.be/oHFcxun0XlA).
 
 I really would like to thank Debasish Dutta for creating this project - multiple versions and for sharing it with community!
 
 ## Original project links
 Some of the links for that project from author are:
-- [Version 2](https://www.instructables.com/Solar-Powered-WiFi-Weather-Station-V20)
-- [Version 3](https://www.instructables.com/Solar-Powered-WiFi-Weather-Station-V30/)
+- [Version 2](https://www.instructables.com/Solar-Powered-WiFi-Weather-Station-V20) - previous version
+- [Version 3](https://www.instructables.com/Solar-Powered-WiFi-Weather-Station-V30/) - current/latest version
 
 ## PCB and assembled PCB links
 Links to ordering PCB's and pre-assembled PCB's from PCBWay:
