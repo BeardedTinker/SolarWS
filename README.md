@@ -129,6 +129,15 @@ For me, this device will be located off site, out of reach in location with plen
 I will try to update code, improve efficiency, calibrate what I can and keep ESPHome version of the project alive.
 This device will be permanent replacement of LaCross 2300 that has been working for more than 15 years now.
 
+## Issues
+
+* Not sure is wind speed is caluclated correctly. One roration is 2 pusles. Data is collected in 25 second window. Have to recheck when I get handheld anemometer it values are correct
+* Every other cycle, battery voltage % is not reported. Not sure why this happens. Forcing now update every 25 seconds to ensure some value is sent
+* Can't use or figure how to use formula in battery % sensor:
+`return ((id(voltage).state - ${battery_empty}) / ${battery_diff} * 100.00);`
+* Sometimes Inpute Boolean in HA is not triggered to OFF after OTA. If you push another update while still awake, then switch is flipped. Maybe adding a bit of delay could help?
+
+
 ## To-Do
 
 * At this point, ESPHome doesn't support UV sensor, so until this sensor is added in ESPHome to work out of box, there is no code that supports it
