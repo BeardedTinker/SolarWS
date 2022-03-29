@@ -20,12 +20,13 @@ Links to ordering PCB's and pre-assembled PCB's from PCBWay:
 
 ## Links to additional componets (if you order assembled PCB these are also needed)
 Links to additional components needed for the project that I ordered:
-- Temperature sensor [DS18B20](https://www.aliexpress.com/item/4000895660165.html):
-- Temperature, humidity & pressure sensor [BME280](https://www.aliexpress.com/item/1005003622447376.html):
+- Temperature sensor [DS18B20](https://www.aliexpress.com/item/4000895660165.html)
+- Temperature, humidity & pressure sensor [BME280](https://www.aliexpress.com/item/1005003622447376.html)
+  (or alternative - [BMP280](https://s.click.aliexpress.com/e/_At5nFR) - without humidity sensor)
 - Lux sensor [BH1750](https://s.click.aliexpress.com/e/_AazuEN)
-- Rain bucket
+- Rain bucket [MS-WH-SP-RG](https://s.click.aliexpress.com/e/_A4Jxal)
 - Wind speed sensor [WH-SP-WS01](https://s.click.aliexpress.com/e/_ACndMN) 
-- Wind direction sensor
+- Wind direction sensor [MS-WH-SP-WD](https://s.click.aliexpress.com/e/_9IxMIh)
 - 18650 battery [LittoKala NCR18650B 3.7V 3400mAh](https://s.click.aliexpress.com/e/_AM6kqp)
 
 ## Weather station housing
@@ -112,6 +113,15 @@ Lux sensor is implemented in the code and is using standard `i2c` address.
 
 Wind speed sensor is also using pulse meter. Downside of course is taht as it is looking at 5 second interval (currently), if wind is very slow, you could miss data here.
 This code will also be tweaked if/when I get handheld anemometer to compare values with ones from the sensor.
+
+# Adding to Home Assistant
+
+Device should automatically be detected in Home Assistant.
+But in order to make OTA easier, you still need to create one Helper or Input Boolean inside home assistant.
+
+`input_boolean.solarws_prevent_deep_sleep`
+
+This will enable you to toogle Deep Sleep of when needed to push OTA.
 
 # Future
 
