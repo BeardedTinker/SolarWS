@@ -120,6 +120,12 @@ Device should automatically be detected in Home Assistant.
 But in order to make OTA easier, you still need to create one Helper or Input Boolean inside home assistant.
 
 `input_boolean.solarws_prevent_deep_sleep`
+I use following yaml for that:
+```solarws_prevent_deep_sleep:
+  name: Prevent Solar WS Deep Sleep
+  icon: mdi:sleep-off
+  initial: false
+  ```
 
 This will enable you to toogle Deep Sleep of when needed to push OTA.
 
