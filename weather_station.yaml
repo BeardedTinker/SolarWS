@@ -1,21 +1,21 @@
-#####
-# Project author: Debasish Dutta
-# Kit supplied by PCBWay: # https://www.pcbway.com/project/shareproject/Solar_Powered_WiFi_Weather_Station_V3_0.html
-# Code adapted and expanded by Bearded Tinker ;)
-# GitHub: https://github.com/BeardedTinker/SolarWS
-# 
-# Additional modules that can be use (and code takes them into account)
-# BME280  temperature, humidity and pressure OR BMP280 for temperature and pressure
-# DS18B20 additional temperature measurments
-# BH1750  lux sensor
-#
-# TX20    Wind speed and direction  
-#
-# NOT USED
-#
-# SI1145  UV index
-#
-#####
+######################################################################################################################
+# Project author: Debasish Dutta                                                                                     #
+# Kit supplied by PCBWay: # https://www.pcbway.com/project/shareproject/Solar_Powered_WiFi_Weather_Station_V3_0.html #
+# Code adapted and expanded by Bearded Tinker ;)                                                                     #
+# GitHub: https://github.com/BeardedTinker/SolarWS                                                                   #
+######################################################################################################################                                                                           
+# Additional modules that can be use (and code takes them into account)                                              #
+# BME280  temperature, humidity and pressure OR BMP280 for temperature and pressure                                  #
+# DS18B20 additional temperature measurments                                                                         #
+# BH1750  lux sensor                                                                                                 #
+#                                                                                                                    #
+# TX20    Wind speed and direction                                                                                   #
+#                                                                                                                    #
+# NOT USED:                                                                                                          #
+#                                                                                                                    #
+# SI1145  UV index                                                                                                   #
+#                                                                                                                    #
+######################################################################################################################
 
 ###########################
 # Configuration variables #
