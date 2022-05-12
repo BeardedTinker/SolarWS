@@ -114,6 +114,12 @@ Lux sensor is implemented in the code and is using standard `i2c` address.
 Wind speed sensor is also using pulse meter. Downside of course is taht as it is looking at 5 second interval (currently), if wind is very slow, you could miss data here.
 This code will also be tweaked if/when I get handheld anemometer to compare values with ones from the sensor.
 
+## Wind direction sensor
+
+While adding sensor to the weather station is not hard, it may require you to calibrate it to your version of sensor.
+Easiest way it to position sensor to each of the positions by hand (N, NE, E, SE, S, SW, W, NW) and read resistance value from the sensor.
+Thank later just expand the range for each of cardial directions until you get constant readings.
+
 # Adding to Home Assistant
 
 Device should automatically be detected in Home Assistant.
@@ -138,7 +144,7 @@ This device will be permanent replacement of LaCross 2300 that has been working 
 ## Issues
 
 * Not sure is wind speed is caluclated correctly. One roration is 2 pusles. Data is collected in 25 second window. Have to recheck when I get handheld anemometer it values are correct
-* Every other cycle, battery voltage % is not reported. Not sure why this happens. Forcing now update every 25 seconds to ensure some value is sent
+~~* Every other cycle, battery voltage % is not reported. Not sure why this happens. Forcing now update every 25 seconds to ensure some value is sent (FIXED)~~
 * Can't use or figure how to use formula in battery % sensor:
 `return ((id(voltage).state - ${battery_empty}) / ${battery_diff} * 100.00);`
 * Sometimes Inpute Boolean in HA is not triggered to OFF after OTA. If you push another update while still awake, then switch is flipped. Maybe adding a bit of delay could help?
@@ -148,4 +154,4 @@ This device will be permanent replacement of LaCross 2300 that has been working 
 
 * At this point, ESPHome doesn't support UV sensor, so until this sensor is added in ESPHome to work out of box, there is no code that supports it
 * Rain bucket doesn't count rain while in deep sleep. There is a workaround but this still isn't implemented
-* Wind speed sensor doesn't detect wind while in deep sleep. There is also workaround on this but this could seriously decrease battery life
+~~* Wind speed sensor doesn't detect wind while in deep sleep. There is also workaround on this but this could seriously decrease battery life - DONE~~
