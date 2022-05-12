@@ -1,22 +1,21 @@
-######################################################################################################################
-# Project author: Debasish Dutta                                                                                     #
-# Kit supplied by PCBWay: # https://www.pcbway.com/project/shareproject/Solar_Powered_WiFi_Weather_Station_V3_0.html #
-# Code adapted and expanded by Bearded Tinker ;)                                                                     #
-# GitHub: https://github.com/BeardedTinker/SolarWS                                                                   #
-######################################################################################################################                                                                           
-# Additional modules that can be use (and code takes them into account)                                              #
-# BME280  temperature, humidity and pressure OR BMP280 for temperature and pressure                                  #
-# DS18B20 additional temperature measurments                                                                         #
-# BH1750  lux sensor                                                                                                 #
-#                                                                                                                    #
-# TX20    Wind speed and direction                                                                                   #
-#                                                                                                                    #
-# NOT USED:                                                                                                          #
-#                                                                                                                    #
-# SI1145  UV index                                                                                                   #
-#                                                                                                                    #
-######################################################################################################################
-
+#####
+# Project author: Debasish Dutta
+# Kit supplied by PCBWay: # https://www.pcbway.com/project/shareproject/Solar_Powered_WiFi_Weather_Station_V3_0.html
+# Code adapted and expanded by Bearded Tinker ;)
+# GitHub: https://github.com/BeardedTinker/SolarWS
+# 
+# Additional modules that can be use (and code takes them into account)
+# BME280  temperature, humidity and pressure OR BMP280 for temperature and pressure
+# DS18B20 additional temperature measurments
+# BH1750  lux sensor
+#
+# TX20    Wind speed and direction  
+#
+# NOT USED
+#
+# SI1145  UV index
+#
+#####
 
 ###########################
 # Configuration variables #
@@ -165,6 +164,10 @@ sensor:
       mode: INPUT_PULLUP    
     name: 'Rainfall'
     unit_of_measurement: 'mm'
+    count_mode:
+      rising_edge: DISABLE
+      falling_edge: INCREMENT
+#    internal_filter: 14ms          
     filters:
       - multiply: 0.367
     update_interval: ${update_fq}
@@ -184,22 +187,152 @@ sensor:
     filters:
       - multiply: 0.048 #1.492mph per rotation so 1 / 25 (update_fq) / 2 * 2.4
 
-### NOT TESTED/IMPLEMENTED
+### Wind direction support
 
-# TX20 sensor is used for tracking wind speed and direction
+# Another ADC platform to track wind direction
+  - platform: adc
+    id: wind_direction
+    pin: GPIO35
+    name: ADC wind
+    attenuation: 11db
+    internal: true
+    update_interval: ${update_fq}
 
-#  - platform: tx20
-#    wind_speed:
-#      name: "Wind speed"
-#    wind_direction_degrees:
-#      name: "Wind direction degrees"
-#    pin:
-#      number: GPIO14
+  - platform: resistance
+    sensor: wind_direction
+    id: resistance_sensor
+    configuration: DOWNSTREAM
+    resistor: 10kOhm
+    internal: true
+    name: Resistance Sensor
+    reference_voltage: 3.3V
+    accuracy_decimals: 1
+
+    on_value:
+      - if:
+          condition:
+            sensor.in_range:
+              id: resistance_sensor
+              above: 30500 
+              below: 33900 
+          then:
+            - text_sensor.template.publish:
+                id: wind_dir_card
+                state: "N"
+            - sensor.template.publish:
+                id: wind_heading
+                state: 0.0
+      - if:
+          condition:
+            sensor.in_range:
+              id: resistance_sensor
+              above: 7500 
+              below: 8400 
+          then:
+            - text_sensor.template.publish:
+                id: wind_dir_card
+                state: "NE"
+            - sensor.template.publish:
+                id: wind_heading
+                state: 45.0
+      - if:
+          condition:
+            sensor.in_range:
+              id: resistance_sensor
+              above: 88000 
+              below: 115000 
+          then:
+            - text_sensor.template.publish:
+                id: wind_dir_card
+                state: "E"
+            - sensor.template.publish:
+                id: wind_heading
+                state: 90.0
+      - if:
+          condition:
+            sensor.in_range:
+              id: resistance_sensor
+              above: 1800 
+              below: 2500 
+          then:
+            - text_sensor.template.publish:
+                id: wind_dir_card
+                state: "SE"
+            - sensor.template.publish:
+                id: wind_heading
+                state: 135.0
+      - if:
+          condition:
+            sensor.in_range:
+              id: resistance_sensor
+              above: 3500 
+              below: 4000 
+          then:
+            - text_sensor.template.publish:
+                id: wind_dir_card
+                state: "S"
+            - sensor.template.publish:
+                id: wind_heading
+                state: 180.0
+      - if:
+          condition:
+            sensor.in_range:
+              id: resistance_sensor
+              above: 14500 
+              below: 16600 
+          then:
+            - text_sensor.template.publish:
+                id: wind_dir_card
+                state: "SW"
+            - sensor.template.publish:
+                id: wind_heading
+                state: 225.0
+      - if:
+          condition:
+            sensor.in_range:
+              id: resistance_sensor
+              above: 850 
+              below: 1200 
+          then:
+            - text_sensor.template.publish:
+                id: wind_dir_card
+                state: "W"
+            - sensor.template.publish:
+                id: wind_heading
+                state: 270.0
+      - if:
+          condition:
+            sensor.in_range:
+              id: resistance_sensor
+              above: 55000 
+              below: 63000 
+          then:
+            - text_sensor.template.publish:
+                id: wind_dir_card
+                state: "NW"
+            - sensor.template.publish:
+                id: wind_heading
+                state: 315.0
+
+  - platform: template
+    name: "${display_name} wind heading"
+    id: wind_heading
+    unit_of_measurement: "°"
+
+text_sensor:
+  - platform: template
+    name: "Wind Cardinal Direction"
+    id: wind_dir_card
 
 # Define length of Deep sleep
 deep_sleep:
   id: deep_sleep_control
   sleep_duration: ${sleep_duration}
+  run_duration:
+    default: ${awake_duration}
+    gpio_wakeup_reason: 2s
+  wakeup_pin: GPIO25
+  wakeup_pin_mode: INVERT_WAKEUP
 
 # Deep sleep script if/then/else
 script:
